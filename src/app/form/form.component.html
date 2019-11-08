@@ -1,0 +1,48 @@
+<div class="container">
+    <img  class="center" src="https://lawatworkci.com/wp-content/uploads/2013/12/76.jpg" >
+  <div class="innerContainer">
+    <form [formGroup]="PW1_form" (ngSubmit)="invia()">
+
+        <label for="description">*Descrizione:</label>
+        <input type="text" id="description"  formControlName="description" (input)="PW1_data.description = this.PW1_form.get('description').value">
+
+        <label for="detail">Dettagli:</label><small>disponibili {{iDescription_MaxLength-(PW1_data.dettaglio || '').length}} caratteri di 100 massimo</small>
+        <textarea rows="4" cols="50" id="detail"  maxlength="{{iDescription_MaxLength}}" formControlName="detail" (input)="PW1_data.dettaglio = this.PW1_form.get('detail').value"></textarea>
+
+        <div>
+          <div class="dateTimeDiv">
+            <label for="dateTime">*Data:</label>
+            <input type="date" id="dateTime"  formControlName="date" (input)="0">
+          </div>
+          <div class="dateTimeDiv">
+            <label for="dateTime">*Ora:</label>
+            <input type="time" id="dateTime"  formControlName="time" (input)="0">
+          </div>
+        </div>
+        
+        <label for="price">*Prezzo:£</label>
+        <input type="text" id="price"  formControlName="price" (input)="PW1_data.price = this.PW1_form.get('price').value" autocomplete="off">
+        
+        <label for="worker">*Manutentore da assegnare:</label>
+        <input type="select" id="worker" list="workList" formControlName="worker" (input)="0">
+        <datalist id="workList">
+          <option *ngFor="let worker of rest.getList()">{{worker[0]}}</option>
+        </datalist>
+
+        <div id="buttonsDiv">
+          <button type="submit" [disabled]="PW1_form.invalid" id="buttonSubmit">Invia</button>
+          <button type="reset" id="buttonReset">Cancella</button>
+        </div>
+        <small>I campi contrassegnati con * sono obbligatori</small>
+
+      </form>
+    </div>
+</div>
+
+<div>description: {{PW1_form.get('description').valid}}</div>
+<div>detail: {{PW1_form.get('detail').valid}}</div>
+<div>date: {{PW1_form.get('date').valid}}</div>
+<div>time: {{PW1_form.get('time').valid}}</div>
+<div>price: {{PW1_form.get('price').valid}}</div>
+<div>worker: {{PW1_form.get('worker').valid}}</div>
+

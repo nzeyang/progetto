@@ -1,0 +1,39 @@
+<div class="container">    
+  <form [formGroup]="PW1_form" (ngSubmit)="invia()">
+    
+      <label for="description">*Descrizione:</label>
+      <input type="text" id="description"  formControlName="description">
+
+      <label for="detail">Dettagli:</label><small>disponibili {{iDescription_MaxLength-(PW1_data.dettaglio || '').length}} caratteri di 100 massimo</small>
+      <textarea rows="4" cols="50" id="detail"  maxlength="{{iDescription_MaxLength}}" formControlName="detail" (input)="PW1_data.dettaglio = this.PW1_form.get('detail').value">{{PW1_data.dettaglio}}</textarea>
+
+      <div>
+        <div class="dateTimeDiv">
+          <label for="dateTime">*Data:</label>
+          <input type="date" id="dateTime"  formControlName="date">
+        </div>
+        <div class="dateTimeDiv">
+          <label for="dateTime">*Ora:</label>
+          <input type="time" id="dateTime"  formControlName="time">
+        </div>
+      </div>
+      
+      <label for="price">*Prezzo:</label>
+      <input type="text" id="price"  formControlName="price">
+      
+      <label for="worker">*Manutentore da assegnare:</label>
+      <input type="select" id="worker" list="workList" formControlName="worker">
+      <datalist id="workList">
+        <option *ngFor="let worker of rest.getList()">{{worker[0]}}</option>
+      </datalist>
+
+      <div id="buttonsDiv">
+        <button type="submit" [disabled]="PW1_form.invalid" id="buttonSubmit">Invia</button>
+        <button type="reset" id="buttonReset">Cancella</button>
+      </div>
+      <small>I campi contrassegnati con * sono obbligatori</small>
+
+    </form>
+</div>
+
+

@@ -1,0 +1,80 @@
+label{
+    margin-top: 10px;
+    display: block;
+}
+
+input{
+    display: block;
+    width: 80%;
+    margin-left: 0px;
+    margin-right: 5px;
+}
+
+.container{
+
+    border-style: solid;
+    border-width: 3px;
+    border-color: rgba(0, 0, 0, 255);
+    padding-bottom: 5%;
+    padding-top: 5%;
+    width: 600px;
+    border-radius: 100px;
+    background-color:rgb(50, 187, 205)
+    
+}
+
+.innerContainer{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    align-self: center;;
+    margin-right: auto;
+    width: 90%;
+    height: 100px;
+    border-radius: 100px;
+  }
+
+#buttonsDiv{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+}
+
+#buttonSubmit{
+    margin-right: 15px;
+    background-color: mediumspringgreen;
+    padding: 1%;
+    width: 15%;
+}
+
+#buttonReset{
+    scroll-margin-left: 15px;
+    background-color: red;
+    padding: 1%;
+    width: 20%;
+}
+
+#price {
+    width: 150px;
+    height: 30px;
+}
+
+.dateTimeDiv{
+    display: inline-block;
+}
+
+#description{
+    height: 50px;
+}
+
+#description{
+    height: 50px;
+}
+
+
+
+
